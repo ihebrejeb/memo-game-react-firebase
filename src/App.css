@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+body {
+  background: #614385; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #516395,
+    #614385
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #516395,
+    #614385
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.start-button {
+  background: #eb3349;
+  background: -webkit-linear-gradient(to right, #f45c43, #eb3349);
+  background: linear-gradient(to right, #f45c43, #eb3349);
+  font-size: 3em !important;
+  padding: 1em 2em !important;
+}
