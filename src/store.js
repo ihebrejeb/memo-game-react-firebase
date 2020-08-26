@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   stats: { trys: 0, success: 0, failure: 0 },
-  options: { grid: "4x3", isVisible: false },
+  options: { grid: "4*3", isVisible: false },
 };
 const store = createContext(initialState);
 const { Provider } = store;

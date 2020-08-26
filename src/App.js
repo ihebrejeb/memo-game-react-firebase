@@ -15,10 +15,13 @@ async function fetchData() {
 }
 function App() {
   const globalState = React.useContext(store);
-  const { dispatch } = globalState;
+  const { state, dispatch } = globalState;
   React.useEffect(() => {
     fetchData().then((data) => {
-      dispatch({ type: "MAIN_DATA", payload: data });
+      dispatch({
+        type: "MAIN_DATA",
+        payload: data,
+      });
     });
   }, [dispatch]);
 
@@ -26,11 +29,9 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/game-1-options">
-          <GameOptions></GameOptions>
+          {state.data && <GameOptions></GameOptions>}
         </Route>
-        <Route path="/game-1">
-          <GameGrid></GameGrid>
-        </Route>
+        <Route path="/game-1">{state.data && <GameGrid></GameGrid>}</Route>
         <Route exact path="/">
           <GamePicker></GamePicker>
         </Route>

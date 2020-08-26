@@ -1,15 +1,25 @@
 import React from "react";
-import { Grid, Card, CardContent } from "@material-ui/core";
-export default function GameCard({ data }) {
+import "./card.css";
+import { Grid, Card } from "@material-ui/core";
+export default function GameCard({ data, flipped, flip, disabled }) {
   return (
-    <Grid item xs={6} md={4}>
-      <Grid container justify="center" alignItems="center">
-        <Card style={{ width: "200px" }}>
-          <CardContent>
-            <h1>{data}</h1>
-          </CardContent>
+    <Grid
+      item
+      xs={6}
+      md={3}
+      style={{ padding: "10px" }}
+      className={`flip-container ${flipped ? "flipped" : ""}`}
+    >
+      <div
+        className="flipper"
+        style={{ width: "100%", height: "150px" }}
+        onClick={() => (disabled ? null : flip(data.id))}
+      >
+        <Card className="front">
+          <img src={data.flag} alt={data.name} style={{ width: "70%" }}></img>
         </Card>
-      </Grid>
+        <Card className="back"></Card>
+      </div>
     </Grid>
   );
 }

@@ -52,8 +52,8 @@ export default function GameOptions() {
                   setGamesize(event.target.value);
                 }}
               >
-                <FormControlLabel value="4x4" control={<Radio />} label="4x4" />
-                <FormControlLabel value="4x3" control={<Radio />} label="4x3" />
+                <FormControlLabel value="4*4" control={<Radio />} label="4x4" />
+                <FormControlLabel value="4*3" control={<Radio />} label="4x3" />
               </RadioGroup>
             </FormControl>
             <FormControlLabel
