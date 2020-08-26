@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import { store } from "./store";
 import GamePicker from "./components/GamePicker";
-import GameOneOptions from "./components/GameOne/GameOneOptions";
+import GameOptions from "./components/GameOne/GameOptions";
+import GameGrid from "./components/GameOne/GameGrid";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 async function fetchData() {
   const res = await fetch(
@@ -25,7 +26,10 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/game-1-options">
-          <GameOneOptions></GameOneOptions>
+          <GameOptions></GameOptions>
+        </Route>
+        <Route path="/game-1">
+          <GameGrid></GameGrid>
         </Route>
         <Route exact path="/">
           <GamePicker></GamePicker>

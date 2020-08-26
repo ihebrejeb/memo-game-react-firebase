@@ -11,14 +11,20 @@ import {
   Checkbox,
   Button,
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import { store } from "../../store";
-export default function GameOneOptions() {
+export default function GameOptions() {
+  const history = useHistory();
   const { state, dispatch } = React.useContext(store);
   const [gamesize, setGamesize] = React.useState(state.options.grid);
   const [isVisible, setIsVisible] = React.useState(state.options.isVisible);
 
   const startGame = () => {
-    dispatch({ type: "GAME_OPTIONS", payload: { grid: gamesize, isVisible } });
+    dispatch({
+      type: "GAME_OPTIONS",
+      payload: { grid: gamesize, isVisible },
+    });
+    history.push("/game-1");
   };
   return (
     <Grid
