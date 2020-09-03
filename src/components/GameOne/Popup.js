@@ -2,6 +2,7 @@ import React from "react";
 import { store } from "../../store";
 import { Card, Button, ButtonGroup } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import { db, auth } from "../../firebase";
 export const Popup = ({ restartGame }) => {
   const { state, dispatch } = React.useContext(store);
   const history = useHistory();
@@ -11,6 +12,29 @@ export const Popup = ({ restartGame }) => {
     });
     history.push("/game-1-options");
   }
+  React.useEffect(() => {
+    if (state.over) {
+      db.collection("score")
+        .doc(auth.currentUser.uid)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            if (
+              doc.data().score <
+              state.stats.success * 5 - state.stats.failure
+            ) {
+              db.collection("score")
+                .doc(auth.currentUser.uid)
+                .set({
+                  score: state.stats.success * 5 - state.stats.failure,
+                  name: auth.currentUser.displayName,
+                  photo: auth.currentUser.photoURL,
+                });
+            }
+          }
+        });
+    }
+  }, [state.over, state.stats.failure, state.stats.success]);
   return state.over ? (
     <div className="popup">
       <Card className="popup-body">
