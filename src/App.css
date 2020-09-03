@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 a {
   color: white;
@@ -26,4 +27,74 @@ body {
   background: linear-gradient(to right, #f45c43, #eb3349);
   font-size: 3em !important;
   padding: 1em 2em !important;
+}
+.game-grid {
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.game-grid-item {
+  margin-top: 10px;
+  width: 80%;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.popup {
+  animation-name: popanim;
+  animation-duration: 0.5s;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.popup-body {
+  animation-name: popanim;
+  animation-duration: 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  width: 20%;
+  height: 40%;
+}
+@keyframes popanim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.user-info {
+  margin: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.user-info > div {
+  margin: 5px;
+}
+.user-info > button {
+  margin-right: 10px;
+}
+.google {
+  margin-right: 20px;
 }

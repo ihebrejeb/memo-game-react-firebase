@@ -16,13 +16,21 @@ import { store } from "../../store";
 export default function GameOptions() {
   const history = useHistory();
   const { state, dispatch } = React.useContext(store);
-  const [gamesize, setGamesize] = React.useState(state.options.grid);
-  const [isVisible, setIsVisible] = React.useState(state.options.isVisible);
+  const [gamesize, setGamesize] = React.useState(
+    state.options ? state.options.grid : "4*3"
+  );
+  const [isVisible, setIsVisible] = React.useState(
+    state.options ? state.options.isVisible : false
+  );
 
   const startGame = () => {
     dispatch({
       type: "GAME_OPTIONS",
       payload: { grid: gamesize, isVisible },
+    });
+
+    dispatch({
+      type: "RESET",
     });
     history.push("/game-1");
   };

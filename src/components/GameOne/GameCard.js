@@ -1,18 +1,16 @@
 import React from "react";
 import "./card.css";
-import { Grid, Card } from "@material-ui/core";
-export default function GameCard({ data, flipped, flip, disabled }) {
+import { Card } from "@material-ui/core";
+export default function GameCard({ data, flipped, flip, disabled, length }) {
   return (
-    <Grid
-      item
-      xs={6}
-      md={3}
-      style={{ padding: "10px" }}
-      className={`flip-container ${flipped ? "flipped" : ""}`}
-    >
+    <div className={`flip-container ${flipped ? "flipped" : ""}`}>
       <div
         className="flipper"
-        style={{ width: "100%", height: "150px" }}
+        style={
+          length === 12
+            ? { width: "150px", height: "150px" }
+            : { width: "100px", height: "100px" }
+        }
         onClick={() => (disabled ? null : flip(data.id))}
       >
         <Card className="front">
@@ -20,6 +18,6 @@ export default function GameCard({ data, flipped, flip, disabled }) {
         </Card>
         <Card className="back"></Card>
       </div>
-    </Grid>
+    </div>
   );
 }

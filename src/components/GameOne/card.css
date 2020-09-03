@@ -1,6 +1,7 @@
 .flip-container {
   perspective: 1000px;
-  width: 100%;
+  width: auto;
+  margin: 10px;
   height: 100%;
 }
 .flip-container.flipped .flipper {
@@ -37,4 +38,10 @@
   align-items: center;
   justify-content: center;
   transform: rotateY(180deg);
+}
+.stats {
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
 }
