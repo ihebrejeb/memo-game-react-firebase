@@ -31,6 +31,14 @@ export const Popup = ({ restartGame }) => {
                   photo: auth.currentUser.photoURL,
                 });
             }
+          } else {
+            db.collection("score")
+              .doc(auth.currentUser.uid)
+              .set({
+                score: state.stats.success * 5 - state.stats.failure,
+                name: auth.currentUser.displayName,
+                photo: auth.currentUser.photoURL,
+              });
           }
         });
     }
